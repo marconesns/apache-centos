@@ -2,6 +2,8 @@
 - name: Install Apache centos docker
   hosts: server
   become: yes
+  vars:
+    dockerfile: /home/marcones.silva/github/Docker/apache-centos/
 
   tasks:
   - name: Remove previous images
@@ -9,7 +11,7 @@
     ignore_errors: yes
 
   - name: Build images
-    command: docker build -t apcentos /home/marcones.silva/github/Docker/apache-centos/
+    command: docker build -t apcentos {{ dockerfile }}
 
   - name: Create container
     command: docker run -i -d -p 8080:80 --name app -t apcentos
