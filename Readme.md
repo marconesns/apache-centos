@@ -22,6 +22,11 @@ localhost
 [server:vars]
 ansible_ssh_user=root
 ```
+Também será necessario editar o arquivo apache_playbook.yml e alterar a variavel com caminho do diretório que contém o Dockerfile.
+```
+[...]
+  dockerfile: <caminho absoluto Dockerfile>
+```
 
 Agora vamos a executação do playbook. proceda com os comandos abaixo.
   É interessante ver se você tem comunicação com todos os hosts, faça um teste
